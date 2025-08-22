@@ -5,190 +5,190 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>klixy</title>
 <style>
-  body {
-    margin: 0;
-    font-family: sans-serif;
-    color: white;
-    height: 100vh;
-    overflow: hidden;
-    position: relative;
-  }
+body {
+  margin: 0;
+  font-family: sans-serif;
+  color: white;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
 
-  .background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    z-index: 0;
-  }
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+}
 
-  .window {
-    background-color: rgba(26,26,26,0.95);
-    border: 1px solid #333;
-    border-radius: 6px;
-    width: 400px;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0,0,0,0.6);
-    position: absolute;
-    top: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-    cursor: grab;
-    z-index: 2;
-  }
+.window {
+  background-color: rgba(26,26,26,0.95);
+  border: 1px solid #333;
+  border-radius: 6px;
+  width: 400px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: grab;
+  z-index: 2;
+}
 
-  .window:active {
-    cursor: grabbing;
-  }
+.window:active {
+  cursor: grabbing;
+}
 
-  .title-bar {
-    background-color: #2d2d2d;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 10px;
-    font-size: 14px;
-    cursor: grab;
-  }
+.title-bar {
+  background-color: #2d2d2d;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: grab;
+}
 
-  .title-bar .buttons {
-    display: flex;
-    gap: 8px;
-  }
+.title-bar .buttons {
+  display: flex;
+  gap: 8px;
+}
 
-  .title-btn {
-    width: 16px;
-    height: 16px;
-    background-color: #444;
-    color: #fff;
-    font-size: 12px;
-    text-align: center;
-    line-height: 16px;
-    border-radius: 2px;
-  }
+.title-btn {
+  width: 16px;
+  height: 16px;
+  background-color: #444;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+  line-height: 16px;
+  border-radius: 2px;
+}
 
-  .content {
-    text-align: center;
-    padding: 30px 20px;
-  }
+.content {
+  text-align: center;
+  padding: 30px 20px;
+}
 
-  .pfp {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin: 0 auto 20px;
-    object-fit: cover;
-    display: block;
-  }
+.pfp {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  object-fit: cover;
+  display: block;
+}
 
-  h1 {
-    margin: 10px 0;
-    font-size: 28px;
-  }
+h1 {
+  margin: 10px 0;
+  font-size: 28px;
+}
 
-  p {
-    margin: 5px 0;
-    color: #aaa;
-  }
+p {
+  margin: 5px 0;
+  color: #aaa;
+}
 
-  .taskbar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 40px;
-    background-color: rgba(255,255,255,0.15);
-    border-top: 1px solid #ccc;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 10px;
-    z-index: 1;
-  }
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background-color: rgba(255,255,255,0.15);
+  border-top: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  z-index: 1;
+}
 
-  .taskbar .start {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.taskbar .start {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
 
-  .taskbar .apps {
-    display: flex;
-    gap: 10px;
-  }
+.windows-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  opacity: 0.8;
+}
 
-  .pfp-icon {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  
-  .windows-icon {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-    opacity: 0.8;
-  }
+.apps {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pfp-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+}
 
 </style>
 </head>
 <body>
-  <img src="windowsbg.jpg" class="background" alt="windows bg">
 
-  <div class="window" id="draggable">
-    <div class="title-bar" id="drag-handle">
-      <span>klixy.exe</span>
-      <div class="buttons">
-        <div class="title-btn">–</div>
-        <div class="title-btn">▢</div>
-        <div class="title-btn">✕</div>
-      </div>
-    </div>
-    <div class="content">
-      <img src="klixy.png" class="pfp" alt="pfp circle">
-      <h1>klixy</h1>
-      <p>testing</p>
+<img src="windowsbg.jpg" class="background" alt="bg">
+
+<div class="window" id="draggable">
+  <div class="title-bar" id="drag-handle">
+    <span>klixy.exe</span>
+    <div class="buttons">
+      <div class="title-btn">–</div>
+      <div class="title-btn">▢</div>
+      <div class="title-btn">✕</div>
     </div>
   </div>
-  <div class="taskbar">
-    <div class="start">
-      <img src="windowsicon.png" class="windowsicon" alt="icon taskbar">
-    </div>
+  <div class="content">
+    <img src="klixy.png" class="pfp" alt="pfp circle">
+    <h1>klixy</h1>
+    <p>testing</p>
+  </div>
+</div>
+
+<div class="taskbar">
+  <div class="start">
+    <img src="windowsicon.png" class="windowsicon" alt="taskbar icon">
     <div class="apps">
       <img src="klixy.png" class="pfp-icon" alt="pfp taskbar">
     </div>
   </div>
+</div>
 
-<script> //fucking dragging
-  const dragWindow = document.getElementById('draggable');
-  const dragHandle = document.getElementById('drag-handle');
+<script> // dragging (chatgpt helped lowk)
+const dragWindow = document.getElementById('draggable');
+const dragHandle = document.getElementById('drag-handle');
 
-  let isDragging = false;
-  let offsetX, offsetY;
+let isDragging = false;
+let offsetX, offsetY;
 
-  dragHandle.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    offsetX = e.clientX - dragWindow.offsetLeft;
-    offsetY = e.clientY - dragWindow.offsetTop;
-    dragWindow.style.cursor = 'grabbing';
-  });
+dragHandle.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  offsetX = e.clientX - dragWindow.offsetLeft;
+  offsetY = e.clientY - dragWindow.offsetTop;
+  dragWindow.style.cursor = 'grabbing';
+});
 
-  document.addEventListener('mouseup', () => {
-    isDragging = false;
-    dragWindow.style.cursor = 'grab';
-  });
+document.addEventListener('mouseup', () => {
+  isDragging = false;
+  dragWindow.style.cursor = 'grab';
+});
 
-  document.addEventListener('mousemove', (e) => {
-    if (isDragging) {
-      dragWindow.style.left = (e.clientX - offsetX) + 'px';
-      dragWindow.style.top = (e.clientY - offsetY) + 'px';
-    }
-  });
+document.addEventListener('mousemove', (e) => {
+  if (isDragging) {
+    dragWindow.style.left = (e.clientX - offsetX) + 'px';
+    dragWindow.style.top = (e.clientY - offsetY) + 'px';
+  }
+});
 </script>
 
 </body>
