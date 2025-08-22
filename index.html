@@ -61,9 +61,10 @@
     .pfp {
       width: 100px;
       height: 100px;
-      background-color: #555;
       border-radius: 50%;
       margin: 0 auto 20px;
+      object-fit: cover;
+      display: block;
     }
 
     h1 {
@@ -102,16 +103,12 @@
       gap: 10px;
     }
 
-    .taskbar .app-icon {
+    .pfp-icon {
       width: 30px;
       height: 30px;
-      background-color: #555;
-      border-radius: 4px;
-    }
-
-    .taskbar .pfp-icon {
       border-radius: 50%;
-      background-color: #555;
+      object-fit: cover;
+      display: block;
     }
   </style>
 </head>
@@ -125,16 +122,17 @@
         <div class="title-btn">✕</div>
       </div>
     </div>
-  <div class="content">
-    <img src="klixy.png" class="pfp" alt="pfp circle">
-    <h1>klixy</h1>
-    <p>testing</p>
+    <div class="content">
+      <img src="klixy.png" class="pfp" alt="pfp circle">
+      <h1>klixy</h1>
+      <p>testing</p>
+    </div>
   </div>
 
   <div class="taskbar">
     <div class="start"></div>
     <div class="apps">
-      <img src="klixy.png" class="app-icon pfp-icon" alt="pfp taskbar">
+      <img src="klixy.png" class="pfp-icon" alt="pfp taskbar">
     </div>
   </div>
 </body>
