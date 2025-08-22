@@ -9,10 +9,6 @@
     margin: 0;
     font-family: sans-serif;
     color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
     height: 100vh;
     overflow: hidden;
     position: relative;
@@ -35,13 +31,12 @@
     width: 400px;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0,0,0,0.6);
-    margin-bottom: 40px;
-    z-index: 1;
     position: absolute;
     top: 100px;
     left: 50%;
     transform: translateX(-50%);
     cursor: grab;
+    z-index: 2;
   }
 
   .window:active {
@@ -72,7 +67,6 @@
     text-align: center;
     line-height: 16px;
     border-radius: 2px;
-    cursor: default;
   }
 
   .content {
@@ -105,7 +99,7 @@
     left: 0;
     width: 100%;
     height: 40px;
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(255,255,255,0.15);
     border-top: 1px solid #ccc;
     display: flex;
     align-items: center;
@@ -115,11 +109,11 @@
   }
 
   .taskbar .start {
-    width: 30px;
-    height: 30px;
-    background-color: #333;
-    margin-right: 10px;
-    border-radius: 4px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .taskbar .apps {
@@ -132,12 +126,11 @@
     height: 30px;
     border-radius: 50%;
     object-fit: cover;
-    display: block;
   }
-
-  .taskbar .windows-icon {
-    width: 30px;
-    height: 30px;
+  
+  .windows-icon {
+    width: 24px;
+    height: 24px;
     object-fit: contain;
     opacity: 0.8;
   }
@@ -145,8 +138,8 @@
 </style>
 </head>
 <body>
-  <img src="windows-bg.jpg" class="background" alt="Windows Background">
-  
+  <img src="windowsbg.jpg" class="background" alt="windows bg">
+
   <div class="window" id="draggable">
     <div class="title-bar" id="drag-handle">
       <span>klixy.exe</span>
@@ -164,13 +157,14 @@
   </div>
   <div class="taskbar">
     <div class="start">
-      <img src="windowsicon.png" class="windowsicon" alt="taskbar icon">
+      <img src="windowsicon.png" class="windowsicon" alt="icon taskbar">
     </div>
     <div class="apps">
       <img src="klixy.png" class="pfp-icon" alt="pfp taskbar">
     </div>
   </div>
-<script> //dragging shit
+
+<script> //fucking dragging
   const dragWindow = document.getElementById('draggable');
   const dragHandle = document.getElementById('drag-handle');
 
@@ -196,5 +190,6 @@
     }
   });
 </script>
+
 </body>
 </html>
