@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>klixy</title>
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: white;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      flex-direction: column;
+    }
+
+    .window {
+      background-color: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 6px;
+      width: 400px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      margin-bottom: 40px;
+    }
+
+    .title-bar {
+      background-color: #2d2d2d;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 10px;
+      font-size: 14px;
+    }
+
+    .title-bar .buttons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .title-btn {
+      width: 16px;
+      height: 16px;
+      background-color: #444;
+      color: #fff;
+      font-size: 12px;
+      text-align: center;
+      line-height: 16px;
+      border-radius: 2px;
+      cursor: default;
+    }
+
+    .content {
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    .pfp {
+      width: 100px;
+      height: 100px;
+      background-color: #555;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+    }
+
+    h1 {
+      margin: 10px 0;
+      font-size: 28px;
+    }
+
+    p {
+      margin: 5px 0;
+      color: #aaa;
+    }
+
+    .taskbar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 40px;
+      background-color: #1f1f1f;
+      border-top: 1px solid #333;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+    }
+
+    .taskbar .start {
+      width: 30px;
+      height: 30px;
+      background-color: #333;
+      margin-right: 10px;
+      border-radius: 4px;
+    }
+
+    .taskbar .apps {
+      display: flex;
+      gap: 10px;
+    }
+
+    .taskbar .app-icon {
+      width: 30px;
+      height: 30px;
+      background-color: #555;
+      border-radius: 4px;
+    }
+
+    .taskbar .pfp-icon {
+      border-radius: 50%;
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="window">
+    <div class="title-bar">
+      <span>klixy.exe</span>
+      <div class="buttons">
+        <div class="title-btn">–</div>
+        <div class="title-btn">▢</div>
+        <div class="title-btn">✕</div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="pfp"></div>
+      <h1>klixy</h1>
+      <p>testing</p>
+    </div>
+  </div>
+
+  <div class="taskbar">
+    <div class="start"></div>
+    <div class="apps">
+      <div class="app-icon pfp-icon"></div>
+    </div>
+  </div>
+</body>
+</html>
